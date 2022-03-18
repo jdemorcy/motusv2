@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "938546437712",
+    "firebase_url": "https://motus-12db3-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "motus-12db3",
+    "storage_bucket": "motus-12db3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938546437712:android:da26da14bb1ed4aa4abb55",
+        "android_client_info": {
+          "package_name": "be.samarkand.motusv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938546437712-8ntfcivsjoelcgvoqj686p95no06sffb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVnVtS3ahHcDJRLa0rHww4ugliy7O3NDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938546437712-8ntfcivsjoelcgvoqj686p95no06sffb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
