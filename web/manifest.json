@@ -1,6 +1,6 @@
 {
-    "name": "gridview_example",
-    "short_name": "gridview_example",
+    "name": "motusv2",
+    "short_name": "motusv2",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

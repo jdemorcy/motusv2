@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:gridview_example/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ShowResult {
@@ -12,10 +11,9 @@ class ShowResult {
 
     // set up the wikitionnaire button
     Widget wikiButton = TextButton(
-      child: const Text("Show word def. in wikitionnaire"),
+      child: const Text("Voir la définition sur wikitionnaire"),
       onPressed: () async {
           var url = Uri.encodeFull('$wikiUrl/$wordSmallCaps');
-          print(url);
           await launch(url); // requires a modification in AndroidManifest.xml in order to work
         },
     );
@@ -31,8 +29,8 @@ class ShowResult {
 
     // set up the AlertDialog for winners
     AlertDialog alertPlayerWins = AlertDialog(
-      title: const Text("Good job !"),
-      content: Text("You found it ! $wordSmallCaps was the word ! \n\nClick on the 'OK' button to start a new game."),
+      title: const Text("Bien joué !"),
+      content: Text("Vous avez trouvé ! '$wordSmallCaps' était bien le mot recherché ! \n\nCliquez sur 'OK' pour démarrer une nouvelle partie"),
       actions: [
         wikiButton, okButton,
       ],
@@ -40,8 +38,8 @@ class ShowResult {
 
     // set up the AlertDialog for losers
     AlertDialog alertPlayerLoses = AlertDialog(
-      title: Text("Well..."),
-      content: Text("The word you were looking for was: $wordSmallCaps... \n\nClick on the 'OK' button to start a new game."),
+      title: Text("Pas de chance..."),
+      content: Text("Le mot recherché était: '$wordSmallCaps'... \n\nCliquez sur 'OK' pour démarrer une nouvelle partie."),
       actions: [
         wikiButton, okButton,
       ],

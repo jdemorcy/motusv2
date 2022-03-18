@@ -1,4 +1,4 @@
-package com.example.gridview_example
+package be.samarkand.motusv2
 
 import io.flutter.embedding.android.FlutterActivity
 
