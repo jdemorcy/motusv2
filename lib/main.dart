@@ -53,21 +53,26 @@ class MyHomePage extends StatelessWidget {
     InputValidation _validationService = Provider.of<InputValidation>(context);
     MotusData _db = Provider.of<MotusData>(context);
 
-    test() {
-      print('-- homepage: test');
-    }
-
     // Triggers player input validation
     validateForm(String wordAllCaps) async {
-
-      // Checking if user proposition is an existing word
-      bool playerPropositionExists = await _db.checkIfExists(_validationService.input.value!.toUpperCase());
+      
+      bool playerPropositionExists = false;
+      if(_validationService.input.value != null) {
+        // Checking if user proposition is an existing word
+        playerPropositionExists = await _db.checkIfExists(_validationService.input.value!.toUpperCase());    
+      } 
+      
       // Injecting word to be found in validation service
       _validationService.setWordToFind(wordAllCaps);
       // Checking player proposition
       dynamic _result = _validationService.validateInput(context, playerPropositionExists);
       // Updating grid result in grid
       _grid.updateGrid(_result);
+
+      // The form field is cleared only when a valid proposition has been entered
+      if(_validationService.input.error == null) {        
+        _controller.clear();
+      }
       
       // Is this the end of the game ?
       if(_grid.tryNum > 6 || _validationService.playerHasWon) {
@@ -117,7 +122,6 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () {
                     FocusManager.instance.primaryFocus?.unfocus();
                     validateForm(_db.wordAllCaps);
-                    _controller.clear();
                 }, 
                 child: const Text('Envoi')),
                 ],

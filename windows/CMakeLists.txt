@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(gridview_example LANGUAGES CXX)
+project(motusv2 LANGUAGES CXX)
 
-set(BINARY_NAME "gridview_example")
+set(BINARY_NAME "motusv2")
 
 cmake_policy(SET CMP0063 NEW)
 

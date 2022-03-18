@@ -27,8 +27,8 @@ class InputValidation with ChangeNotifier{
   }
 
   // Checking input format as player types in
-  void changeInput(value, error) {
-    if(_regInput.hasMatch(value)) {
+  void changeInput(String value, error) {
+    if(_regInput.hasMatch(value) || value.isEmpty) {
       _input = ValidationItem(value, null);
     } else {
       _input = ValidationItem(value, 'Caractère(s) invalides!');
@@ -40,6 +40,8 @@ class InputValidation with ChangeNotifier{
   validateInput(BuildContext context, playerPropositionExists) {
 
     String _checkInputLength = _input.value ?? '';
+
+    print('------------- validateInput ran');
 
     if(_input.error != null) {
       var _message = 'Votre proposition ne peut pas contenir de caractères spéciaux ou accentués';

@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "gridview_example" "\0"
+            VALUE "FileDescription", "motusv2" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "gridview_example" "\0"
+            VALUE "InternalName", "motusv2" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "gridview_example.exe" "\0"
-            VALUE "ProductName", "gridview_example" "\0"
+            VALUE "OriginalFilename", "motusv2.exe" "\0"
+            VALUE "ProductName", "motusv2" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
