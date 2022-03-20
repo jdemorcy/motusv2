@@ -41,8 +41,6 @@ class InputValidation with ChangeNotifier{
 
     String _checkInputLength = _input.value ?? '';
 
-    print('------------- validateInput ran');
-
     if(_input.error != null) {
       var _message = 'Votre proposition ne peut pas contenir de caractères spéciaux ou accentués';
       showValidationError(context, _message);
