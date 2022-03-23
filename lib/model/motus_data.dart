@@ -28,7 +28,7 @@ class MotusData with ChangeNotifier{
       path = 'https://motus-12db3-default-rtdb.europe-west1.firebasedatabase.app/param.json';
       response = await fbClient.get(path);
       int count = response['count'];
-      print('# of words: $count');
+      print('\x1B[32m# of words: $count\x1B[0m');
 
       // Generating random number
       Random random = Random();
@@ -42,7 +42,7 @@ class MotusData with ChangeNotifier{
         _wordSmallCaps = value;
       });
 
-      print('random word #$randomNumber: $_wordSmallCaps');
+      print('\x1B[32mrandom word #$randomNumber: $_wordSmallCaps\x1B[0m');
       return _wordAllCaps;
   }
 
