@@ -43,7 +43,7 @@ class SignIn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Log In path: ${GoRouter.of(context).location}'),
-              Text('Logged In ?: ${_user.isLoggedIn}'),
+              Text('Logged In ?: ${_user.user?.uid}'),
               const SizedBox(height: 50),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(

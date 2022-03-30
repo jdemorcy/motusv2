@@ -30,10 +30,6 @@ class MotusGrid with ChangeNotifier {
     // Notifying provider listeners
     notifyListeners();
   }
-
-  test() {
-      print('test ran in _grid');
-    }
   
   // Returns the list of squares widget
   List<Widget> buildGrid() {

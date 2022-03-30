@@ -1,31 +1,37 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:motusv2/model/motus_user.dart';
 
 class AuthService with ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  late MotusUser? _user;
   var isLoggedIn = false;
 
-  // create user object based on Firebase user
-  /*
-  BrewUser? _userFromFirebaseUser(user) {
-    return user != null ? BrewUser(uid: user.uid) : null;
+  AuthService() {
+    _init();
   }
-  */
 
-  // listening to user auth event (log in / log out)
-  Stream<User?> get user {
-    return _auth.authStateChanges();
+  void _init() {
+    _user = MotusUser(uid: null);
+  }
+
+  // create user object based on Firebase user
+  MotusUser? _userFromFirebaseUser(user) {
+    return user != null ? MotusUser(uid: user.uid) : null;
+  }
+  
+  MotusUser? get user {
+    return _user;
   }
 
   // sign in anon
   Future signInAnon() async {
-
     try {
+      UserCredential result = await _auth.signInAnonymously();
+      _user = _userFromFirebaseUser(result.user);
       isLoggedIn = true;
       notifyListeners();
-      UserCredential result = await _auth.signInAnonymously();
-      var user = result.user;
       return user;
     } catch (e) {
       print(e.toString());
@@ -38,7 +44,7 @@ class AuthService with ChangeNotifier {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      User? user = result.user;
+      _user = _userFromFirebaseUser(result.user);
       return user;
     } catch (e) {
       print(e.toString());
@@ -65,6 +71,7 @@ class AuthService with ChangeNotifier {
   Future signOut() async {
     try {
       isLoggedIn = false;
+      _init();
       notifyListeners();
       return await _auth.signOut();
     } catch (e) {
